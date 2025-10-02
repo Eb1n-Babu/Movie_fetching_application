@@ -1,0 +1,10 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg
+*.egg-info/
+.env
+.venv/
+venv/
+*.sqlite3
+*.log
