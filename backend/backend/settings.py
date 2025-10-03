@@ -37,9 +37,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
+    'corsheaders',
+    'movie_app',
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -48,6 +52,17 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+# CORS settings (allow React frontend)
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",
+]
+
+# API Keys and Base URLs (add at the end)
+TMDB_API_KEY = 'd7a481c9bc5979ba0c78c76a7f8802c8'
+OMDB_API_KEY = 'b1882d56'
+TMDB_BASE_URL = 'https://api.themoviedb.org/3'
+OMDB_BASE_URL = 'https://www.omdbapi.com/'
 
 ROOT_URLCONF = 'backend.urls'
 
