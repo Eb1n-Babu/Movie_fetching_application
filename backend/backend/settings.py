@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
 from pathlib import Path
+from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -20,7 +21,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-7$_^+(*m-!!ce5^3i#i=%)o0e1u3g_2n#1nhp=b77=mq_5_+jd'
+SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -59,10 +60,10 @@ CORS_ALLOWED_ORIGINS = [
 ]
 
 # API Keys and Base URLs (add at the end)
-TMDB_API_KEY = 'd7a481c9bc5979ba0c78c76a7f8802c8'
-OMDB_API_KEY = 'b1882d56'
-TMDB_BASE_URL = 'https://api.themoviedb.org/3'
-OMDB_BASE_URL = 'https://www.omdbapi.com/'
+TMDB_API_KEY = config('TMDB_API_KEY')
+OMDB_API_KEY = config('OMDB_API_KEY')
+TMDB_BASE_URL = config('TMDB_BASE_URL')
+OMDB_BASE_URL = config('OMDB_BASE_URL')
 
 ROOT_URLCONF = 'backend.urls'
 
